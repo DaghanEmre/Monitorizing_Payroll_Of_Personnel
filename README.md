@@ -1,2 +1,17 @@
 # Monitorizing_Payroll_Of_Personnel
 Developing a system to monitorize payroll of Personnel who is working in a governmental institution.
+
+1)	INTRODUCTION
+In this assignment, it is expected from us to make a payroll management system that calculates the monthly payments of each personnels in a governmental institution. First, we need to make a plan to get requirements, inputs, outputs, attributes that is related with the classes and designing the possible class hierarchy. Then we need to make an implementation which includes getting the input files, processing the datas, and printing the output files. 
+2)	SOFTWARE USAGE
+This software runs with 2 input text file which are Personnel and Monitoring text files. Because of using arguments in main function, you can use any text name you want, but you just need to write these file names to arguments in Run Configurations. Personnel file includes information about the personnels(name, surname, personnel id, personnel position, year of starting to work for company), and Monitoring file includes the weekly work hours in a month for each personnel. After getting these informations, software processes the total gain in a month for each person and prints to the output text files that have personnel registration number as file name.
+3)	PROBLEM AND SOLUTION
+First problem that i faced is lack of abstract class types. When i was creating the Personnel, Employee, and Full Time Employee classes i had to write all attributes again and again. After i found the abstract class type, i solved the problem.
+Second problem in the implementation process is necessity of final static values in class. While i implementing the calculatePayment() function i wrote lots of special number like “payment per hour”, “max over work hours” etc. But these number should be able to changed from customer who uses that application, and he/she doesn’t know where need to be changed. “private final static” key words provides that option. So, the special attribute that needs to be changed can find very easily.
+Third trouble that i faced while implementing the code is show only 2 digit after decimal total weekly gain amount. I found some solutions for that, but it just make 1 digit after decimal or print comma instead of point in the output file. I used String.format(Locale.English, “%.2f”, someDouble) code script to solve that problem.
+4)	DATA STRUCTURE
+I used Array list for holding weekly total work hours for a person. That helps me to reach that information easyly while calculating the total gain. But i didn’t use for personnels avoiding to one more O(N) complexity to print all. I just get the personnel line, process it, and print the necessery information. Then, skipping next line that includes another person informations.
+5)	ALGORITHMS
+I used override methods to be able to calculate each type of personnels in necessity. I splitted some big functions to small functions that have one duty. So, my code is got shorter and more readable. 
+7)	THOUGHTS AND COMMENTS
+I have learned some things from that assigment while, designing and implementing it.  First, i learned how to override a function in sub classes in Object Oriented Programming rules. Second, i learned what is abstract classes and how to implement them in proper. Third, i learned to use final static attributes in classes and making them private. Last thing that i have learned is Turkish decimal format is comma, and the compiler use comma. I have solved that problem with changing it to English version.
